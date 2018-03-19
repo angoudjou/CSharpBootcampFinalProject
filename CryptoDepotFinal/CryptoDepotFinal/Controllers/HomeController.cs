@@ -32,13 +32,10 @@ namespace CryptoDepotFinal.Controllers
         public ActionResult Risk(double? risk)
         {
 
-
-
-
             //This is where the data is sorted from the user imput.
             //Goes inside The Coins database and calculates the standard deviation
             List<Coin> tp = (from elt in db.Coins.Where(x => x.stdv <= risk) select elt).ToList();
-
+ViewBag.Risk = Risk;
 
             return View(tp);
         }
